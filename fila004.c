@@ -13,11 +13,6 @@ typedef struct nodo{
     struct nodo* prox;
 } Nodo;
 
-typedef struct lista{
-	Nodo *prim;
-	int tam;
-//pilha endereço somente do topo 
-}
 //NODO informação e ponteiro para o proxino
 /* função de inicialização: retorna uma lista vazia e volta aonde parou aponta para null temos uma lista vazia  */
 Nodo* cria_lista(){
@@ -39,11 +34,11 @@ Nodo* insere(Nodo* Prim, int v){
 */
 void imprime (Lista* L)   //void pois nao retorna nada
 {
- Lista* p; /* variável auxiliar para percorrer a lista */
- for (p = L; p != NULL; p = p->prox)
-    printf("info = %d\n", p->info);
+Lista* p; /* variável auxiliar para percorrer a lista */
+     for (p = L; p != NULL; p = p->prox)
+        printf("info = %d\n", p->info);
 }
-Nodo *retira
+
 int main(){
     Nodo* L = cria_lista();
     L = insere (L,10);
