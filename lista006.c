@@ -27,7 +27,7 @@ typedef struct lista2 {
 /*FUNCAO DE INSERCAO NO INICIO*/
 Lista2* insere(Lista2* l, int v){
     Lista2* novo = (Lista2*) malloc(sizeof(Lista2));
-    novo->info =v; //GUARDA O VALOR
+    novo->info = v; //GUARDA O VALOR
     novo->prox = l; //PROXIMO DO NOVO EJ O ANTIGO PRIMEIRO
     novo->ant = NULL; //COMO EH O PRIMEIRO, NAO TEM ANTERIOR
 
