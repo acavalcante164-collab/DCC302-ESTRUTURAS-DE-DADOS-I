@@ -8,7 +8,16 @@ typedef struct pilha{
     int VETOR[MAX];
 }Pilha;
 
-void CriaPilha (Pilha* p){
+/*
+Pilha* CriaPilha(){
+pilha* p = (Pilha*)malloc(sizeof(pilha));
+p->topo =0;
+return p;
+}
+*/
+
+
+void CriaPilha(Pilha* p){
     p->topo = 0;
 }
 int EstahVazia(Pilha* p){
@@ -28,19 +37,22 @@ int Empilha(Pilha* p, int x){
     return 0;
 }
 int DesEmpilha(Pilha* p){
-    if(!EstaCheia(p)){
+    if(!EstahVazia(p)){
         p->topo--;
         return p->VETOR[p->topo];
     }
     return 0;
 }
+/*int topo (Pilha* p){
+    return p->VETOR[p->topo-1];
+}*/
 void ImprimePilha( Pilha* p){
     if(EstaCheia(p)){
         printf("Estah Cheia!\n");
         return;
     }
     if(EstahVazia(p)){
-        printf("Estah Cheia!\n");
+        printf("Estah Vazia!\n");
         return;
     }
     for (int i = p->topo - 1; i >= 0; i--){
@@ -59,8 +71,13 @@ int main(){
     Empilha(&prato, 20);
     Empilha(&prato, 30);
 
+    DesEmpilha(&prato);
+    DesEmpilha(&prato);
+    DesEmpilha(&prato);
+
     printf("\n--- PILHA ATUAL ---\n");
     ImprimePilha(&prato);
 
+    LiberaPilha(&prato);
     return 0;
 }

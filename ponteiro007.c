@@ -23,6 +23,6 @@ int main(){
     printf("O endereco de ptr eh: %p\n", ptr);
  }
  void atualizar(int x, int *ptr){
-    printf("O valor antigo de X = %d\n", (x-1));
+    printf("\nO valor antigo de X = %d\n", (x-1));
     printf("O NOVO valor de x eh %d", *ptr);
  }
