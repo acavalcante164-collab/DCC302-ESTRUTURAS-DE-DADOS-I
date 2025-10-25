@@ -136,6 +136,17 @@ void imprime_rec (Lista* l)
  /* imprime sub-lista */
  imprime_rec(l->prox);
 }
+void reverse_list(Lista *L){
+    {
+ if (vazia(L))
+ return;
+ 
+ /* 1. Chama recursivamente A SI MESMA para a sub-lista */
+ reverse_list(L->prox);
+/* 2. Só depois que a recursão voltar, imprime o elemento atual */
+ printf("info: %d\n",L->info);
+}
+}
 int lista_soma_recursiva(Lista *l) {
     // 1. Caso Base: Se a lista está vazia, a soma é 0.
     if (l == NULL) {
@@ -145,46 +156,6 @@ int lista_soma_recursiva(Lista *l) {
     // 2. Caso Recursivo: A soma é o valor do nó atual (L->info)
     //    mais a soma do resto da lista (L->prox).
     return l->info + lista_soma_recursiva(l->prox);
-}
-/*
- * Função que mescla duas listas ordenadas (L1, L2) em uma terceira (L3).
- * VERSÃO RECURSIVA (DESTRUTIVA).
- * Esta função altera L1 e L2, "desmontando-as" para montar a nova lista.
- * Ao final, L1 e L2 não serão mais listas válidas.
- * Apenas a lista retornada (L3) deve ser usada e liberada.
- */
-Lista* merge_sorted_lists(Lista *L1, Lista *L2) {
-    // 1. Casos Base: Se uma das listas estiver vazia, retorne a outra.
-    if (vazia(L1)) {
-        return L2;
-    }
-    if (vazia(L2)) {
-        return L1;
-    }
-
-    // 2. Passo Recursivo:
-    Lista* L3_cabeca = NULL; // Ponteiro para a cabeça da lista mesclada
-
-    // Compara os nós da cabeça de L1 e L2
-    if (L1->info <= L2->info) {
-        // A cabeça de L1 é menor, então ela é a cabeça de L3
-        L3_cabeca = L1;
-        
-        // O próximo de L3_cabeca será o resultado da mesclagem 
-        // do resto de L1 (L1->prox) com a L2 inteira.
-        L3_cabeca->prox = merge_sorted_lists(L1->prox, L2);
-    } 
-    else {
-        // A cabeça de L2 é menor, então ela é a cabeça de L3
-        L3_cabeca = L2;
-
-        // O próximo de L3_cabeca será o resultado da mesclagem
-        // da L1 inteira com o resto de L2 (L2->prox).
-        L3_cabeca->prox = merge_sorted_lists(L1, L2->prox);
-    }
-
-    // Retorna a cabeça da nova lista mesclada
-    return L3_cabeca;
 }
 int main (void) {
  Lista* l; /* declara uma lista não iniciada */
@@ -196,47 +167,10 @@ int main (void) {
 
  imprime_rec(l); 
 
-// Testando a versão recursiva
-int soma_total_rec = lista_soma_recursiva(l);
-printf("\nA soma (recursiva) eh: %d\n", soma_total_rec);
+printf("\nLista Reversa:\n");
 
-// 1. Criar a primeira lista (L1)
-  Lista* l1 = inicializa(); 
-  l1 = insere_ordenado(l1, 10);
-  l1 = insere_ordenado(l1, 25);
-  l1 = insere_ordenado(l1, 30);
-  
-  printf("Lista L1:\n");
-  imprime_rec(l1); // Imprimirá: 10 25 30
-
-  // 2. Criar a segunda lista (L2)
-  Lista* l2 = inicializa();
-  l2 = insere_ordenado(l2, 5);
-  l2 = insere_ordenado(l2, 20);
-  l2 = insere_ordenado(l2, 40);
-
-  printf("\nLista L2:\n");
-  imprime_rec(l2); // Imprimirá: 5 20 40
-
-  // 3. Mesclar as duas listas
-  // Vamos usar a versão RECURSIVA (Destrutiva)
-  printf("\nMesclando L1 e L2...\n");
-  Lista* l3 = merge_sorted_lists(l1, l2);
-
-  printf("\nLista Mesclada L3:\n");
-  imprime_rec(l3); // Imprimirá: 5 10 20 25 30 40
-
-printf("\n\n");
- l = retira_rec(l, 78);
- imprime_rec(l); /* imprimirá: 56 45 23 */
- l = retira_rec(l, 45);
- imprime_rec(l); /* imprimirá: 56 23 */
+reverse_list(l);
 
  libera_rec(l);
-
- // 4. Liberar a memória
-  // Como usamos a versão destrutiva, L1 e L2 foram "desmontadas".
-  // Todos os nós agora pertencem a L3. Só precisamos liberar L3.
-  libera_rec(l3);
  return 0;
 }
