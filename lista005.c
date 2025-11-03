@@ -8,7 +8,7 @@ EXERCICIO DA AULA 01  10/09/2025 A 17/09/2025
 
 /*
 
-DESCRIÇÃO:
+DESCRIÇÃO: DUPLAMENTE ENCADEADA
 Função de busca
 A função de busca recebe a informação referente ao elemento que queremos buscar e
 tem como valor de retorno o ponteiro do nó da lista que representa o elemento. Caso o

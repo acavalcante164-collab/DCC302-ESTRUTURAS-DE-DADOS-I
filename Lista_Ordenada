@@ -1,0 +1,8 @@
+//PONTEIRO PARA LISTA E VALOR PARA SER INSERIDO
+novo = (Lista *)malloc(sizeof(Lista));
+novo->info = v;
+
+if (ant == NULL){
+    novo->prox = L->prim;
+    L->prim = novo;
+}

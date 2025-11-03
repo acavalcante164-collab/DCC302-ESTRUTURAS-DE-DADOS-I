@@ -62,7 +62,8 @@ Lista* insere_ordenado (Lista* l, int v)
  Lista* novo = cria(v); /* cria novo nó */
  Lista* ant = NULL; /* ponteiro para elemento anterior */
  Lista* p = l; /* ponteiro para percorrer a lista*/
- /* procura posição de inserção */
+
+ /* procura posição de inserção MATEM ESSA ORDEM*/
  while (p != NULL && p->info < v) {
  ant = p;
  p = p->prox;
