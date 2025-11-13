@@ -29,8 +29,8 @@ Lista* busca (Lista* l, int v)
 {
  Lista* p;
  for (p=l; p!=NULL; p=p->prox)
- if (p->info == v)
- return p;
+    if (p->info == v)
+        return p;
  return NULL; /* não achou o elemento */
 }
 /* função retira: retira elemento da lista */
@@ -39,8 +39,8 @@ Lista* retira (Lista* l, int v) {
  Lista* p = l; /* ponteiro para percorrer a lista*/
  /* procura elemento na lista, guardando anterior */
  while (p != NULL && p->info != v) {
- ant = p;
- p = p->prox;
+    ant = p;
+    p = p->prox;
  }
  /* verifica se achou elemento */
  if (p == NULL)
