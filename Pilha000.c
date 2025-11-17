@@ -21,10 +21,11 @@ void CriaPilha(Pilha* p){
 /*
 RECEBE UM '*' PONTEIRO PARA UMA "STRUCT" DO TIPO 'PILHA'
 E LIBERA A MEMORIA OCUPADA POR ELA
-*/
 void LiberaPilha(Pilha* p){
     free(p);
 }
+*/
+
 /*
 O QUE CARACTERIZA UMA PILHA VAZIA ?
 O TOPO ESTAH NA POSICAO = O;
@@ -52,6 +53,7 @@ int empilha(Pilha* p, int v){
         /* INSERE UM ELEMENTO NA PROXIMA POSICAO LIVRE */
         p->vetor[p->topo] = v;
         p->topo++;
+        return 1;
     }
     return 0;    
 }
@@ -67,7 +69,7 @@ foi desempilhado ou então retorna 0 (zero) se
 não foi possível desempilhar;
 */
 int desempilha(Pilha* p) {
-    if (!EstahCheia(p)) {
+    if (!EstahVazia(p)) {
         p->topo--; // Primeiro decrementa para apontar para o último elemento
         return p->vetor[p->topo];
     }
@@ -86,6 +88,15 @@ void imprimir(Pilha* p){
         printf(" %d\n", p->vetor[i]);
     }
 
+}
+int verTopo(Pilha* p){
+    if(!EstahVazia(p)){
+        //O ELEMENTO DO TOPO ESTA NA POSICAO ANTERIOR AO P->TOPO
+        return p->vetor[p->topo-1];
+    }else{
+        printf("\nPilha vazia\n");
+        return 0;
+    }
 }
 int main(){
     Pilha prato;
