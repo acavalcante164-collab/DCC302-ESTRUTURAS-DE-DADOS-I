@@ -1,0 +1,3 @@
+Nome: Alonso | Idade: 24 | Altura: 1.75
+Nome: Beatriz | Idade: 22 | Altura: 1.67
+Nome: Raimunda Mesquita | Idade: 50 | Altura: 1.50
