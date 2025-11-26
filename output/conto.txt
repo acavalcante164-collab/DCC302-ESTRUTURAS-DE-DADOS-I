@@ -1,1 +1,1 @@
-Ola mundo aqui estou eu estundando
+Estou manipulando arquivos em C, isso ‚ muito legal
