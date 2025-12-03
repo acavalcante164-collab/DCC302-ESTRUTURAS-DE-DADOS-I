@@ -1,0 +1,67 @@
+https://www.luiztools.com.br/post/como-criar-um-mecanismo-de-busca/
+https://www.elastic.co/pt/blog/how-to-create-a-search-engine
+https://github.com/NetoStAna/algoritmos-de-busca
+https://www.youtube.com/playlist?list=LL
+
+Com certeza. Este é um projeto clássico de Estruturas de Dados.
+
+Para atender rigorosamente aos seus requisitos (TADs, alocação totalmente dinâmica, dicionário ordenado alfabeticamente e sem vetores estáticos), a melhor abordagem é utilizar uma Lista Encadeada para o Dicionário (onde cada nó é uma palavra) e, pendurado em cada nó do dicionário, uma Lista Encadeada de Ocorrências.
+
+Estrutura do Projeto
+Vamos dividir a lógica em:
+
+TAD Ocorrência: O nó que guarda a linha e a quantidade.
+
+TAD Palavra: O nó do dicionário que guarda a string, aponta para a próxima palavra e para a lista de ocorrências.
+
+TAD Índice: A estrutura que gerencia a cabeça da lista de palavras.
+
+Aqui está a implementação completa e robusta em C.
+
+Com certeza. Este é um projeto clássico de Estruturas de Dados.
+
+Para atender rigorosamente aos seus requisitos (TADs, alocação totalmente dinâmica, dicionário ordenado alfabeticamente e sem vetores estáticos), a melhor abordagem é utilizar uma Lista Encadeada para o Dicionário (onde cada nó é uma palavra) e, pendurado em cada nó do dicionário, uma Lista Encadeada de Ocorrências.
+
+Estrutura do Projeto
+Vamos dividir a lógica em:
+
+TAD Ocorrência: O nó que guarda a linha e a quantidade.
+
+TAD Palavra: O nó do dicionário que guarda a string, aponta para a próxima palavra e para a lista de ocorrências.
+
+TAD Índice: A estrutura que gerencia a cabeça da lista de palavras.
+
+Aqui está a implementação completa e robusta em C.
+IndiceInvertidoDinamico/main.c
+30 de nov., 17:01
+
+Explicação da Solução e TADs
+Para cumprir a exigência de "Estruturas Dinâmicas e Ordenadas", implementamos da seguinte forma:
+
+Dicionário Dinâmico e Ordenado (NoPalavra):
+
+Em vez de um vetor fixo (indice[1000]), o dicionário é uma Lista Encadeada.
+
+A função processar_palavra faz uma Inserção Ordenada. Ela percorre a lista até achar a posição alfabética correta para inserir a nova palavra. Isso garante que, se você imprimir o índice, ele já estará em ordem alfabética (A-Z).
+
+Usamos strdup (ou malloc + strcpy) para alocar a string da palavra. Isso significa que podemos guardar palavras de qualquer tamanho, e quantas palavras a memória RAM aguentar.
+
+Lista de Ocorrências (NoOcorrencia):
+
+Cada nó do dicionário tem um ponteiro ocorrencias.
+
+Este ponteiro aponta para uma segunda lista encadeada.
+
+Se a palavra aparece na linha 1, 2 e 5, teremos 3 nós encadeados pendurados na palavra.
+
+Lógica da Frequência:
+
+Ao processar uma linha, se a palavra já existe no dicionário E já existe um nó para a linha atual na lista de ocorrências, apenas incrementamos qtd.
+
+Isso resolve o requisito de "quantidade de ocorrências nessa linha".
+
+Operações:
+
+Exclusão: Remove o nó da palavra da lista principal e, antes disso, varre e libera a sub-lista de ocorrências para evitar vazamento de memória (Memory Leak).
+
+Mais Frequente: Varre o dicionário inteiro, somando o campo qtd de todas as ocorrências de cada palavra para encontrar a campeã.
