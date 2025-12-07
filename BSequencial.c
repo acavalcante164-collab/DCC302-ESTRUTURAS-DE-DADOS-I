@@ -17,7 +17,7 @@ void main (){
     scanf(" %d", &chave);
 
     //FUNCAO DE BUSCA
-    resultado = buscaSequencial();
+    resultado = buscaSequencial(numeros, chave, 10); //TODO NOME DE VETOR E UM PONTEIRO, SE TIVESSE COM & ESTARIA PASSANDO O ENDERECO DDE MEMORIA ONDE ELE ESTA ALOCADO
 
     if (resultado != -1){
         printf("O elemento %d foi encontrado no indice %d", chave, resultado);
