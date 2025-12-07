@@ -23,6 +23,6 @@ void main (){
         printf("O elemento %d foi encontrado no indice %d", chave, resultado);
     }
     else{
-        printf("O elemento %d nao foi encontrado.", &chave);
+        printf("O elemento %d nao foi encontrado.", chave);
     }
 }
