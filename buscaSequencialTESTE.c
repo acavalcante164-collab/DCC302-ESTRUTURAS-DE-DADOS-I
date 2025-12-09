@@ -4,7 +4,7 @@
 int buscaSequencial(int vetor[], int TAM, int valor) {
     for (int i = 0 ; i < TAM ; i++){
         if (vetor[i] == valor){
-            return i; //Retorna o indice do valor encontrad
+            return i + 1; //Retorna o indice do valor encontrad
         }
     }
     return -1; //Valor nao encontrado
@@ -15,7 +15,11 @@ int main () {
     int tamanho = 5;
     int valorBuscado;
 
-    printf("Digite um valor para buscar no vetor: ");
+    for (int i = 0; i < tamanho; i++){
+        printf(" %d", v[i]);
+    }
+
+    printf("\nDigite um valor para buscar no vetor: ");
     scanf("%d", &valorBuscado);
 
     //CHAMADA DA FUNCAO E CAPTURA DO RETORNO
