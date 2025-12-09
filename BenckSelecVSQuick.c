@@ -96,7 +96,7 @@ void benchmark_ordenacao(char *arquivo, int tam) {
     printf("\n-----------------------------------------------------\n");
     printf("RELATORIO DE DESEMPENHO\n");
     printf("Arquivo Lido: %s\n", arquivo);
-    printf("Tamanho do Arquivo: %d numeros\n", tam); // AJUSTE AQUI
+    printf("Tamanho do Arquivo: %d numeros\n", tam);
     printf("-----------------------------------------------------\n");
     
     int *dados_originais = carregar_arquivo(arquivo, tam);
